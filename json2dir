@@ -1,0 +1,5 @@
+#!/bin/sh
+# SPDX-License-Identifier: ISC
+set -eu
+project_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+exec "${GUILE:-guile}" --no-auto-compile -L "$project_dir/src" -s "$project_dir/src/main.scm" "$@"
